@@ -14,7 +14,7 @@ code {
 .post {
 	box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
 	background-color: #fff;
-	margin: 0 6%;
+	margin: 0;
 	padding-top: 3%;
 	position: relative;
 }
@@ -41,4 +41,11 @@ code {
 	font-family: "Noto Sans", sans-serif;
 	line-height: 1.5;
 	padding: 3% 6%;
+}
+
+@media only screen and (min-width: 768px) {
+	.post {
+		margin: 0 6%;
+		padding-top: 3%;
+	}
 }

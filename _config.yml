@@ -17,7 +17,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 # Build settings
 markdown: kramdown
 
-highlighter: rouge
+# highlighter: rouge # is currently unsupported on GitHub Pages
 
 defaults:
   -
