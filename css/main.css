@@ -1,0 +1,27 @@
+* {
+	font-family: "Noto Serif", sans-serif;
+}
+
+.post {
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+	margin: 0 6%;
+}
+
+.entry-header {
+	padding: 0 6%;
+}
+
+.entry-content {
+	padding: 0 6%;
+}
+
+.entry-footer {
+	background-color: #f7f7f7;
+	color: #707070;
+	color: rgba(51, 51, 51, 0.7);
+	font-family: "Noto Sans", sans-serif;
+	font-size: 12px;
+	font-size: 1.2rem;
+	line-height: 1.5;
+	padding: 3% 6%;
+}
