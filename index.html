@@ -8,25 +8,27 @@ layout: default
 
 	<ul class="post-list">
 		{% for post in site.posts %}
-		<article class="post">
+		<li>
+			<article class="post">
 
-			<header class="entry-header">
-				<h2 class="entry-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-			</header>
-			<!-- .entry-header -->
+				<header class="entry-header">
+					<h2 class="entry-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+				</header>
+				<!-- .entry-header -->
 
-			<div class="entry-content">
-				<p>Content.</p>
-			</div>
-			<!-- .entry-content -->
+				<div class="entry-excerpt">
+					{{ post.excerpt }}
+				</div>
+				<!-- .entry-content -->
 
-			<footer class="entry-footer">
-				<span class="posted-on">{{ post.date | date: "%b %-d, %Y" }}</span>
-				<span>tag1, tag2</span>
-			</footer>
-			<!-- .entry-footer -->
+				<footer class="entry-footer">
+					<span class="posted-on">{{ post.date | date: "%b %-d, %Y" }}</span>
+					<span>tag1, tag2</span>
+				</footer>
+				<!-- .entry-footer -->
 
-		</article>
+			</article>
+		</li>
 		{% endfor %}
 	</ul>
 

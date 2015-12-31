@@ -17,6 +17,8 @@ baseurl: "" # the subpath of your site, e.g. /blog
 # Build settings
 markdown: kramdown
 
+# Post settings
+excerpt_separator: "<!-- excerpt end -->"
 # highlighter: rouge # is currently unsupported on GitHub Pages
 
 defaults:

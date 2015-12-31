@@ -5,6 +5,16 @@ body {
 	background: #f1f1f1;
 }
 
+ul,
+li {
+	list-style: none;
+	padding: 0;
+}
+
+ul.post-list li {
+	margin: 20px 0 10px 0;
+}
+
 pre,
 code {
 	font-size: inherit;
@@ -30,7 +40,8 @@ code {
 	padding: 0 6%;
 }
 
-.entry-content {
+.entry-content,
+.entry-excerpt {
 	padding: 0 6% 3%;
 }
 
@@ -41,6 +52,14 @@ code {
 	font-family: "Noto Sans", sans-serif;
 	line-height: 1.5;
 	padding: 3% 6%;
+}
+
+footer {
+	margin: 30px 0;
+}
+
+.float-right {
+	float: right;
 }
 
 @media only screen and (min-width: 768px) {
