@@ -6,9 +6,12 @@
 	<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 	<link rel="canonical" href="{{ page.url }}" />
 	<!--font-->
-	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif:400,700'>
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif:400,500'>
 	<link rel="stylesheet" href='{{ "/css/bootstrap.min.css " }}'>
 	<!--syntax-highlighting-->
 	<link rel="stylesheet" href='{{ "/css/main.css" }}'>
 	<link rel="stylesheet" href='{{ "/css/common.css" }}'>
+	<style>
+		@import url(http://fonts.googleapis.com/earlyaccess/notosanssc.css);
+	</style>
 </head>
