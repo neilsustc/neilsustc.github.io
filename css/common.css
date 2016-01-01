@@ -27,7 +27,7 @@ a:hover {
 }
 
 .navbar {
-	background: #39A9E5;
+	background: #4285F4;
 	border-radius: 0;
 	border: none;
 }
@@ -38,21 +38,12 @@ a:hover {
 	transition-property: background-color;
 }
 
-.navbar a:hover {
-	background: #4CC0FF;
-}
-
-.navbar ul li a:hover {
-	background: #4CC0FF;
-}
-
-.navbar ul li a.active {
-	background: #4CC0FF;
-}
-
+.navbar a:hover,
+.navbar ul li a:hover,
+.navbar ul li a:active,
 .nav>li>a:focus,
 .nav>li>a:hover {
-	background-color: #4CC0FF;
+	background: #66A0FF;
 }
 
 .post {
@@ -97,6 +88,9 @@ footer {
 	float: right;
 }
 
+
+/* when width is large than 768px */
+
 @media only screen and (min-width: 768px) {
 	.post {
 		margin: 0 5%;
@@ -104,7 +98,13 @@ footer {
 	}
 }
 
+
+/* when width is less than 768px */
+
 @media only screen and (max-width: 768px) {
+	.navbar {
+		background: #4285F4;
+	}
 	div.col-md-10.col-md-offset-1 {
 		padding: 0;
 	}
