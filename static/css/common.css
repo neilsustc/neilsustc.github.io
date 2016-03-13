@@ -1,0 +1,32 @@
+.excerpt {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  color: #717171;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+.image-wrapper {
+    text-align: center;
+    box-shadow: 0 0 10px #b4b4b4;
+    margin-bottom: 1rem;
+}
+.image-wrapper img {
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0;
+}
+.image-wrapper .image-caption {
+    color: #717171;
+    background-color: #f0f0f0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.8rem;
+}
+blockquote cite {
+    font-size: 0.8rem;
+}
+h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
