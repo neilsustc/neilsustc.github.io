@@ -29,4 +29,11 @@ blockquote cite {
 h2 {
     margin-top: 2rem;
     margin-bottom: 1rem;
+    /*color: #006CBF;*/
+}
+em, strong {
+    color: #AE403F;
+}
+strong {
+    font-family: "PT Sans";
 }
