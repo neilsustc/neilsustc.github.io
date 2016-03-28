@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The first accomplished coursera course of a procrastinator
+title: The First Accomplished Coursera Course of a Procrastinator
 ---
 
 <div class="image-wrapper">

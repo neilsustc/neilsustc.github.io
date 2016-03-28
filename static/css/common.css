@@ -37,3 +37,9 @@ em, strong {
 strong {
     font-family: "PT Sans";
 }
+figure {
+    margin: 0;
+}
+mark {
+    border-radius: 5px;
+}
