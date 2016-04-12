@@ -121,7 +121,7 @@ Key points (in my view):
 - caller saved: `$ra`, `$a0-a3`, `$t0-t9`(if you care)
 - callee saved: `$s0-s7`    ???
 
-**Example** Factorial (my own implementation)
+**Example** Factorial (my implementation)
 
     .data
     strWelcome: .asciiz "Please input n (n >= 0) (close your IME): "
