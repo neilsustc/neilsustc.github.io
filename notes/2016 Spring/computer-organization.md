@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: hiddenpage
 title: Notes - Computer Organization
 ---
 
