@@ -6,7 +6,7 @@ h1, h2, h3, h4, h5, h6 {
     color: black;
 }
 body {
-    color: #303030;
+    color: black;
 }
 /* */
 blockquote cite {
@@ -30,6 +30,9 @@ figure {
 }
 mark {
     border-radius: 5px;
+}
+hr {
+    border-top-color: #c8c8c8;
 }
 /* excerpt */
 .excerpt {
@@ -56,4 +59,10 @@ mark {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     font-size: 0.8rem;
+}
+hr.quarter {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    border-top-color: #c8c8c8;
 }
