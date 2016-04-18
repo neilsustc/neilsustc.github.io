@@ -31,9 +31,6 @@ figure {
 mark {
     border-radius: 5px;
 }
-hr {
-    border-top-color: #c8c8c8;
-}
 /* excerpt */
 .excerpt {
   margin-bottom: 1rem;
@@ -59,6 +56,12 @@ hr {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     font-size: 0.8rem;
+}
+.posts .post {
+    margin-bottom: 40px;
+}
+.post hr {
+    border-top-color: #c8c8c8;
 }
 hr.quarter {
     width: 25%;

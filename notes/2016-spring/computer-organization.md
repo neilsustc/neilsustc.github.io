@@ -3,7 +3,7 @@ layout: hiddenpage
 title: Notes - Computer Organization
 ---
 
-Last modified: 2016-03-27  
+Last modified: 2016-04-18  
 [Edit on GitHub](https://github.com/neilsustc/Notes/blob/master/2016%20Spring/Computer%20organization.md)
 
 ---
@@ -15,7 +15,7 @@ Textbook: Computer Organization and Design - The Hardware/Software Interface 5th
 cost/performance trade-off
 
 - **CPU execution time** or simply **CPU time**, which recognizes this distinction, is the time the CPU spends computing for this task and does not include time spent waiting for I/O or running other programs.
-- **Clock cycle**. Almost all computers are constructed using a clock that determines when events take place in the hardware. Th ese discrete time intervals are called clock cycles.
+- **Clock cycle**. Almost all computers are constructed using a clock that determines when events take place in the hardware. These discrete time intervals are called clock cycles.
 - **Clock period**. The length of each clock cycle.
 
 some equations:
@@ -46,16 +46,20 @@ Register vs. Memory
 
 Numeric Representations
 
-![MIPS](/static/imgs/MIPS.png)
+![MIPS](img/MIPS.png)
 
 -------
 
 - Lecture 4: 2.6-2.8
 - Lecture 5: 2.9-2.16
+- Lecture 6: 3.1-3.4
+- Lecture 7: 3.5-3.8
+- Lecture 8: 4.1-4.3
 
 # Contents
 
-- [2 Instructions: Language of the Computer](#chapter-2-instrctions)
+- 1 Computer Abstractions and Technology
+- [2 Instructions: Language of the Computer](#2-instrctions)
   - [2.7 Instrctions for Making Decisions](#instructions-for-making-decisions)
   - [2.8 Supporting Procedures in Computer Hardware](#supporting-procedures-in-computer-hardware)
   - 2.9 Communicating with People (representation of characters)
@@ -63,8 +67,10 @@ Numeric Representations
   - ...
   - 2.13 A C Sort Example to Pull It All Together (Page 132)
   - ...
+- [3 Arithmetic for Computers](3-arithmetic-for-computers)
+- [4 The Processor](#4-the-processor)
 
-# Chapter 2 Instrctions
+# 2 Instrctions
 
 ## Instrctions for Making Decisions
 
@@ -159,8 +165,8 @@ Key points (in my view):
         li      $v0, 10
         syscall
 
-- I use lowercase label to denote *function*(or *procedure*).
-- It is slightly different from the code given in the textbook. In textbook, `sw`(the code block to store registers onto the stack) is placed in the very front of the function `factorial`. I place it just before where another procedure is going to be called.
+- I use <mark>lowercase label</mark> to denote *function*(or *procedure*).
+- It is slightly different from the code given in the textbook. In textbook, `sw`(the code block used to store registers onto the stack) is placed in the very front of the function `factorial`. I place it just before where another procedure is going to be called.
 
 ### Allocating Space for New Data on the Stack
 
@@ -172,7 +178,7 @@ We've been avoiding using `$fp` by avoiding changes to the `$sp` within a proced
 
 ### Allocating Space for New Data on the heap
 
-![Memory allocation](/static/imgs/MIPS_memory_allocation.png)
+![Memory allocation](img/MIPS_memory_allocation.png)
 
 ## MIPS Addressing for 32-bit Immediates and Addresses
 
@@ -196,11 +202,66 @@ Solution: *PC-relative addressing*
 
 ### Summary
 
-![addressing modes](/static/imgs/MIPS_addressing_modes.png)
+![addressing modes](img/MIPS_addressing_modes.png)
 
 ## A C Sort Example to Pull It All Together
 
 Textbook, page 132
+
+# 3 Arithmetic for Computers
+
+## Addition and Subtraction
+
+Overflow conditions for addition and subtraction
+
+Saturating operation (...)
+
+(to be constructed ...)
+
+# 4 The Processor
+
+## 4.1 Introduction
+
+Chapter 1 explains that the performance of a computer is determined by three key factors: *instrcution count*, *clock cycle time*, and *clock per instruction*(CPI).
+
+Chapter 2 explains that the instruction set architecture determine the *instruction count* required for a given program.
+
+The implementation of the processor determines both the *clock cycle time* and *CPI*.
+
+We will examine two MIPS implementations
+
+- a simplified version
+- a more realistic pipelined version
+
+### A Basic MIPS Implementation
+
+(abbreviating *instruction* with *inst*)
+
+- memory-reference insts (`lw`, `sw`)
+- arithmetic-logical insts (`add`, `sub`, `AND`, `OR`, `slt`)
+- branch and jump insts (`beq`, `j`)
+
+For every inst, the first two steps are identical:
+
+1. using the *program counter*(PC) to fetch the inst from memory
+2. read one or two registers, using fields of the inst to select the registers to read
+
+<div class="image-wrapper">
+    <img src="/static/imgs/basic_impl_MIPS.png" alt="A high-level view of a MIPS implementation"/>
+    <p class="image-caption">A high-level view of a MIPS implementation</p>
+</div>
+
+## 4.2 Logic Design Conventions
+
+组合逻辑电路(ALU etc.)，时序逻辑电路(register, memory etc.)
+
+### Clocking Methodology
+
+**Clocking methodology** The approach used to determine when data is valid and stable relative to the clock. A *clock methodology* defines when signals can be read and when they can be written.
+
+## 4.3 Building a Datapath
+
+Implementing R-type insts, lw/sw, J-type insts (some figures ...)
 
 -------
 
