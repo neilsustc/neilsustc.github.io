@@ -46,7 +46,6 @@ Register vs. Memory
 
 Numeric Representations
 
-![MIPS](img/MIPS.png)
 
 -------
 
@@ -178,7 +177,6 @@ We've been avoiding using `$fp` by avoiding changes to the `$sp` within a proced
 
 ### Allocating Space for New Data on the heap
 
-![Memory allocation](img/MIPS_memory_allocation.png)
 
 ## MIPS Addressing for 32-bit Immediates and Addresses
 
@@ -202,7 +200,6 @@ Solution: *PC-relative addressing*
 
 ### Summary
 
-![addressing modes](img/MIPS_addressing_modes.png)
 
 ## A C Sort Example to Pull It All Together
 
