@@ -3,53 +3,15 @@ layout: hiddenpage
 title: Notes - Computer Organization
 ---
 
-Last modified: 2016-04-18  
+Last modified: 2016-04-19  
 [Edit on GitHub](https://github.com/neilsustc/Notes/blob/master/2016%20Spring/Computer%20organization.md)
 
 ---
 
 Textbook: Computer Organization and Design - The Hardware/Software Interface 5th ed.
 
-# Lecture 2: Performance (1.6-1.11)
-
-cost/performance trade-off
-
-- **CPU execution time** or simply **CPU time**, which recognizes this distinction, is the time the CPU spends computing for this task and does not include time spent waiting for I/O or running other programs.
-- **Clock cycle**. Almost all computers are constructed using a clock that determines when events take place in the hardware. These discrete time intervals are called clock cycles.
-- **Clock period**. The length of each clock cycle.
-
-some equations:
-
-    CPU Time = CPUClockCycles * ClockPeriod = CPUClockCycles / ClockRate  
-    ClockCycles = InstructionCount * CyclePerInstruction(CPI)
-
-If different instructions have different CPI, average CPI is affected by instruction mix.
-
-In CMOS IC technology
-
-    Power = CapacitiveLoad * Voltage ^ 2 * Frequency
-
-# Lecture 3: Instruction Set Architecture (2.1-2.5)
-
-We will use MIPS as an example
-
-Design principle:
-
-- Simplicity favors regularity
-- Smaller is faster
-- Make the common case fast
-- Good design demands good compromises
-
-The MIPS ISA has 32 registers (x86 has 8 registers)
-
-Register vs. Memory
-
-Numeric Representations
-
-![MIPS](/static/imgs/MIPS.png)
-
--------
-
+- Lecture 2: 1.6-1.11
+- Lecture 3: 2.1-2.5
 - Lecture 4: 2.6-2.8
 - Lecture 5: 2.9-2.16
 - Lecture 6: 3.1-3.4
@@ -58,21 +20,107 @@ Numeric Representations
 
 # Contents
 
-- 1 Computer Abstractions and Technology
-- [2 Instructions: Language of the Computer](#2-instrctions)
-  - [2.7 Instrctions for Making Decisions](#instructions-for-making-decisions)
-  - [2.8 Supporting Procedures in Computer Hardware](#supporting-procedures-in-computer-hardware)
+- [1 Computer Abstractions and Technology](#1-computer-abstractions-and-technology)
+  - [1.6 Performance](#1-6-performance)
+  - [1.7 The Power Wall](#1-7-the-power-wall)
+- [2 Instructions: Language of the Computer](#2-instructions-language-of-the-computer)
+  - [2.1 Introduction](#2-1-introduction)
+  - [2.2/2.3 Operations/Operands of the Computer Hardware](#2-2-2-3-operations-operands-of-the-computer-hardware)
+  - [2.4 Signed and Unsigned Numbers](#2-4-signed-and-unsigned-numbers)
+  - [2.5 Representing Instruction in the Computer](#2-5-representing-instruction-in-the-computer)
+  - [2.6 Logic Operations](#2-6-logic-operations)
+  - [2.7 Instrctions for Making Decisions](#2-7-instructions-for-making-decisions)
+  - [2.8 Supporting Procedures in Computer Hardware](#2-8-supporting-procedures-in-computer-hardware)
   - 2.9 Communicating with People (representation of characters)
-  - [2.10 MIPS Addressing for 32-bit Immediates and Addresses](#mips-addressing-for-32-bit-immediates-and-addresses)
+  - [2.10 MIPS Addressing for 32-bit Immediates and Addresses](#2-10-mips-addressing-for-32-bit-immediates-and-addresses)
   - ...
   - 2.13 A C Sort Example to Pull It All Together (Page 132)
   - ...
 - [3 Arithmetic for Computers](3-arithmetic-for-computers)
+  - [3.2 Addition and Subtraction](#3-2-addition-and-subtraction)
+  - [3.3 Multiplication](#3-3-multiplication)
+  - [3.4 Division](#3-4-division)
+  - [3.5 Floating Point](#3-5-floating-point)
 - [4 The Processor](#4-the-processor)
 
-# 2 Instrctions
+-----
 
-## Instrctions for Making Decisions
+# 1 Computer Abstractions and Technology
+
+## 1.6 Performance
+
+- **Response time** Also called **execution time**. The total time required for the computer to complete a task, including disk accesses, memory accesses, I/O activities, operating system overhead, CPU execution time, and so on.
+- **CPU execution time** or simply **CPU time**, which recognizes this distinction, is the time the CPU spends computing for this task and does not include time spent waiting for I/O or running other programs.
+- **Clock cycle**. Almost all computers are constructed using a clock that determines when events take place in the hardware. These discrete time intervals are called clock cycles.
+- **Clock period**. The length of each clock cycle.
+- **CPI**. Clock cucles per instruction
+
+some equations:
+
+    CPU Time = CPUClockCycles * ClockPeriod = CPUClockCycles / ClockRate  
+    ClockCycles = InstructionCount * CyclePerInstruction(CPI)
+
+If different instructions have different CPI, average CPI is affected by *instruction mix*.
+
+## 1.7 The Power Wall
+
+In CMOS IC technology
+
+    Power ∝ 1/2 * CapacitiveLoad * Voltage ^ 2 * FrequencySwitched
+
+*cost/performance trade-off*. In the PostPC Era the really critical resource is energy.
+
+# 2 Instructions: Language of the Computer
+
+## 2.1 Introduction
+
+ISA - instruction set architecture
+
+We will use **MIPS** as an example
+
+Design principles:
+
+- Simplicity favors regularity
+- Smaller is faster
+- Good design demands good compromises
+- (Make the common case fast)
+
+## 2.2/2.3 Operations/Operands of the Computer Hardware
+
+![MIPS](/static/imgs/MIPS_opnds_oprs.png)
+
+Register vs. Memory
+
+The MIPS ISA has 32 registers (x86 has 8 registers)
+
+## 2.4 Signed and Unsigned Numbers
+
+base b expansion
+
+least/most significant bit
+
+**2's complement representation** has the advantage that all negative numbers have a 1 in the most siginificant bit.
+
+**sign extension**
+
+2 useful shortcuts working with 2's complement numbers:
+
+- negation shortcut (a quick way to negate a 2's complement binary number)
+  invert every bit (0 to 1, 1 to 0), add one to the result.
+- sign extension shortcut
+  take the sign bit(msb) from the small quantity and *replicate* it to fill the new bits of the barfer quantity.
+  0010 -> 0000 0010
+  1110 -> 1111 1110
+
+## 2.5 Representing Instruction in the Computer
+
+MIPS: R-type/format (for register), I-type (for immediate) and J-type (jump?)
+
+## 2.6 Logic Operations
+
+shift left/right, AND, OR, NOT
+
+## 2.7 Instrctions for Making Decisions
 
 `beq`, `bne`
 
@@ -80,7 +128,7 @@ Numeric Representations
 
 `j`, `jr` (unconditional)
 
-## Supporting Procedures in Computer Hardware
+## 2.8 Supporting Procedures in Computer Hardware
 
 **procedure** (in other words, function in programming)
 
@@ -180,15 +228,17 @@ We've been avoiding using `$fp` by avoiding changes to the `$sp` within a proced
 
 ![Memory allocation](/static/imgs/MIPS_memory_allocation.png)
 
-## MIPS Addressing for 32-bit Immediates and Addresses
+## 2.10 MIPS Addressing for 32-bit Immediates and Addresses
+
+### 32-Bit Immediate Operands
 
 MIPS instructions are 32 bits long
 
-32-bit constants, `lui`, `ori`
+32-bit constants, `lui`(*load upper immediate*; specifically to set the upper 16 bits of a constant in a register), `ori`
 
-### Branch addressing
+### Addressing in Branches and Jumps
 
-The conditional branch instruction must specify two operands in addition to the branch addr, leaving only 16 bits for the branch addr.
+The *conditional branch* instruction must specify two operands in addition to the branch addr, leaving only 16 bits for the branch addr.
 
 Solution: *PC-relative addressing*
 
@@ -202,21 +252,81 @@ Solution: *PC-relative addressing*
 
 ### Summary
 
-![addressing modes](/static/imgs/MIPS_addressing_modes.png)
+<div class="image-wrapper">
+    <img src="/static/imgs/MIPS_addressing_modes.png" alt="MIPS addressing mode summary"/>
+    <p class="image-caption">MIPS addressing mode summary</p>
+</div>
 
-## A C Sort Example to Pull It All Together
+## 2.13 A C Sort Example to Pull It All Together
 
 Textbook, page 132
 
 # 3 Arithmetic for Computers
 
-## Addition and Subtraction
+## 3.2 Addition and Subtraction
 
-Overflow conditions for addition and subtraction
+Overflow conditions for addition and subtraction (4 cases)
 
-Saturating operation (...)
+`lbu`, `lhu`, `lb`, `lh`, `sb`, `sh`
 
-(to be constructed ...)
+**Saturating operation** means that when a calculation overflows, the result is set to the largest positive number (or most negative number), rather than a modulo calculation as in 2's complement arithmetic.
+
+## 3.3 Multiplication
+
+    Multiplicand       1000
+    Multiplier         1001
+                      -----
+                       1000
+                      0000
+                     0000
+                    1000
+                   --------
+    Product         1001000
+
+Multiplication hardware simply *shift* and *add*.
+
+Signed multiplication: first convert the two operands to positive numbers and then remember the original signs.
+
+Faster multiplication: organize additions in parallel
+
+`mult`, `multu`, `mflo`, `mfhi` (MIPS provides a separate pair of 32-bit registers to contain 64-bit product, called *Hi* and *Lo*)
+
+## 3.4 Division
+
+                       1001  Quotient
+                  ---------
+    Divisior 1000 | 1001010  Dividend
+                    1000
+                   -----
+                       10
+                       101
+                       1010
+                      -----
+                         10  Remainder
+
+Signed division: ...; conventionally, the dividend an remainder must have the same signs.
+
+Faster division: (to be edited...); We accelerate division by predicting multiple quotient bits and then correcting mispredictions later.
+
+`div`, `divu`
+
+## 3.5 Floating Point
+
+**scientific notation**, **normalized number**
+
+### Floating-Point Representation
+
+fraction, exponent
+
+In general, floating-point numbers are of the form (-1)<sup>S</sup>×F×2<sup>E</sup>, and also could be of other form (-1)<sup>S</sup>×(1+F)×2<sup>E</sup> (IEEE 754 standard, making comparisons easier)
+
+| **precise** | **sign/exponent/fraction** |
+| single | 1/8/23 |
+| double | 1/11/52 |
+
+### Floating-Point Addition/Multiplication
+
+(to be edited...)
 
 # 4 The Processor
 
