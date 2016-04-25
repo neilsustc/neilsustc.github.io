@@ -3,7 +3,7 @@ layout: hiddenpage
 title: Notes - Computer Organization
 ---
 
-Last modified: 2016-04-19  
+Last modified: 2016-04-25  
 [Edit on GitHub](https://github.com/neilsustc/Notes/blob/master/2016%20Spring/Computer%20organization.md)
 
 ---
@@ -20,28 +20,28 @@ Textbook: Computer Organization and Design - The Hardware/Software Interface 5th
 
 # Contents
 
-- [1 Computer Abstractions and Technology](#1-computer-abstractions-and-technology)
-  - [1.6 Performance](#1-6-performance)
-  - [1.7 The Power Wall](#1-7-the-power-wall)
-- [2 Instructions: Language of the Computer](#2-instructions-language-of-the-computer)
-  - [2.1 Introduction](#2-1-introduction)
-  - [2.2/2.3 Operations/Operands of the Computer Hardware](#2-2-2-3-operations-operands-of-the-computer-hardware)
-  - [2.4 Signed and Unsigned Numbers](#2-4-signed-and-unsigned-numbers)
-  - [2.5 Representing Instruction in the Computer](#2-5-representing-instruction-in-the-computer)
-  - [2.6 Logic Operations](#2-6-logic-operations)
-  - [2.7 Instrctions for Making Decisions](#2-7-instructions-for-making-decisions)
-  - [2.8 Supporting Procedures in Computer Hardware](#2-8-supporting-procedures-in-computer-hardware)
+- [1 Computer Abstractions and Technology](#computer-abstractions-and-technology)
+  - [1.6 Performance](#performance)
+  - [1.7 The Power Wall](#the-power-wall)
+- [2 Instructions: Language of the Computer](#instructions-language-of-the-computer)
+  - [2.1 Introduction](#introduction)
+  - [2.2/2.3 Operations/Operands of the Computer Hardware](#operations-operands-of-the-computer-hardware)
+  - [2.4 Signed and Unsigned Numbers](#signed-and-unsigned-numbers)
+  - [2.5 Representing Instruction in the Computer](#representing-instruction-in-the-computer)
+  - [2.6 Logic Operations](#logic-operations)
+  - [2.7 Instrctions for Making Decisions](#instructions-for-making-decisions)
+  - [2.8 Supporting Procedures in Computer Hardware](#supporting-procedures-in-computer-hardware)
   - 2.9 Communicating with People (representation of characters)
-  - [2.10 MIPS Addressing for 32-bit Immediates and Addresses](#2-10-mips-addressing-for-32-bit-immediates-and-addresses)
+  - [2.10 MIPS Addressing for 32-bit Immediates and Addresses](#mips-addressing-for-32-bit-immediates-and-addresses)
   - ...
   - 2.13 A C Sort Example to Pull It All Together (Page 132)
   - ...
-- [3 Arithmetic for Computers](3-arithmetic-for-computers)
-  - [3.2 Addition and Subtraction](#3-2-addition-and-subtraction)
-  - [3.3 Multiplication](#3-3-multiplication)
-  - [3.4 Division](#3-4-division)
-  - [3.5 Floating Point](#3-5-floating-point)
-- [4 The Processor](#4-the-processor)
+- [3 Arithmetic for Computers](arithmetic-for-computers)
+  - [3.2 Addition and Subtraction](#addition-and-subtraction)
+  - [3.3 Multiplication](#multiplication)
+  - [3.4 Division](#division)
+  - [3.5 Floating Point](#floating-point)
+- [4 The Processor](#the-processor)
 
 -----
 
@@ -318,11 +318,11 @@ Faster division: (to be edited...); We accelerate division by predicting multipl
 
 fraction, exponent
 
-In general, floating-point numbers are of the form (-1)<sup>S</sup>×F×2<sup>E</sup>, and also could be of other form (-1)<sup>S</sup>×(1+F)×2<sup>E</sup> (IEEE 754 standard, making comparisons easier)
+In general, floating-point numbers are of the form (-1)<sup>S</sup>×F×2<sup>E</sup>, and also could be of other form (-1)<sup>S</sup>×(1+F)×2<sup>(E-Bias)</sup> (IEEE 754 standard, making comparisons easier, ensuring exponent is unsigned)
 
-| **precise** | **sign/exponent/fraction** |
-| single | 1/8/23 |
-| double | 1/11/52 |
+| **precise** | **sign/exponent/fraction** | **Bias** |
+| single | 1/8/23 | 127 |
+| double | 1/11/52 | 1023 |
 
 ### Floating-Point Addition/Multiplication
 

@@ -3,7 +3,7 @@ layout: hiddenpage
 title: Notes - Discrete Mathematics
 ---
 
-Last modified: 2016-04-14  
+Last modified: 2016-04-25  
 [Edit on GitHub](https://github.com/neilsustc/Notes/blob/master/2016%20Spring/Discrete%20mathematics.md)
 
 ---
@@ -37,13 +37,16 @@ Discrete mathematics therefore excludes topics in *"continuous mathematics"* suc
 
 Proposition: a *declarative* statement that is <mark>either true or false</mark>
 
+    x + 1 = 2  (not proposition)
+
 Compound proposition: formed from existing propositions using *logic operators* (also called connectives)
 
 Logical connectives:
 
-- negation
-- conjunction
-- disjunction
+- negation (not)
+- conjunction (and)
+- disjunction (or)
+- exclusive or (xor true when p and q have different values)
 - conditional (false when p is true and q is false, and true otherwise)
 - biconditional (true when p and q have the same truth values)
 
@@ -51,6 +54,12 @@ Logical connectives:
 
 The compound propositions p and q are called **logically equivalent** if p ↔ q is a tautology.  
 The notation p ≡ q denotes that p and q are logically equivalent.
+
+### Some explanation 
+
+- The converse of p → q is q → p.
+- The contrapositive of p → q is ¬q → ¬p.
+- The inverse of p → q is ¬p → ¬q.
 
 ### Important Logical Equivalences
 
@@ -184,7 +193,7 @@ If there is a one-to-one function(*injection*) from A to B, the cardinality of A
 
 ### Countable Sets
 
-A set that is <mark>either finite</mark> or <mark>has the same cardinality as the set of positive integers</mark> \\(\mathrm{Z}^+\\) is called **countable**. A set that is not countable is called **uncountable**.
+A set that is <mark>either finite</mark> or <mark>has the same cardinality as the set of positive integers</mark> \\(Z^+\\) is called **countable**. A set that is not countable is called **uncountable**.
 
 **Theorem** The set of (positive) rational numbers is countable.
 
@@ -218,24 +227,18 @@ Time and Space Complexity
 
 Three cases of analysis
 
-{::comment}The end of lec06{:/comment}
-
 # Number Theory and Cryptography
 
 ## Divisibility and Modular Arithmetic
 
-Division ...
-
-### Congruence
-
-congruence of sums and products
+Division (...)
 
 \\(a \equiv b \pmod m\\) and \\(a \bmod b = b\\) are *different*
 
 - \\(a \equiv b \pmod m\\) is a *relation*(congruence relation) on the set of integers
 - In \\(a \bmod b = b\\), the notation \\(\bmod\\) denotes a *function*
 
-**Definition** \\( \mathbf{Z}_m;\ +_m,\ ._m \\)
+**Definition** \\( \mathbf{Z}_m,\ +_m,\ ._m \\)
 
 properties: closure, ...
 
@@ -251,17 +254,14 @@ If n is composite, then n has a prime divisor less than or equal to \\(\sqrt{n}\
 
 GCD/LCM
 
-## Euclidean Algorithm
+**Definition** Let \\(a \in \mathrm{Z}\\) and \\(n \in \mathrm{N}\\). If \\(\mathrm{gcd}(a, n) = 1\\), the least \\(l \in \mathrm{N}\\) such that \\(a^l \equiv 1 (\mathrm{mod} n)\\) is called the **order** of \\(a\\) modulo \\(n\\),
+denoted by \\(\mathrm{ord}_n(a)\\).
 
-{::comment}The end of lec07{:/comment}
-
-**Bezout's Theorem** If \\(a\\) and \\(b\\) are positive integers, then there exist integers \\(s\\) and \\(t\\) such that \\(\mathrm{gcd}(a,b)=sa+tb\\). This is called *Bezout's identity*.
+**Theorem** Let \\(a \in \mathrm{Z}\\) and \\(n \in \mathrm{N}\\) with \\(\mathrm{gcd}(a, n) = 1\\). Then \\(\mathrm{ord}_n(a)\\) exists and divides \\(\phi(n)\\).
 
 ----------------
 
-# Lectures
-
-## Week 7 Wed.
+Week 7 Wed.
 
 Euler's totient function \\(\phi(n)\\)
 
