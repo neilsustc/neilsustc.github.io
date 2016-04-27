@@ -3,7 +3,7 @@ layout: hiddenpage
 title: Notes - Numerical Analysis
 ---
 
-Last modified: 2016-04-25  
+Last modified: 2016-04-27  
 [Edit on GitHub](https://github.com/neilsustc/Notes/blob/master/2016%20Spring/Numerical%20analysis.md)
 
 ---
@@ -14,6 +14,110 @@ Textbooks:
 
 - A First Course in Numerical Analysis, Anthony Ralston, Philip Rabinowitz, 2 ed.
 - 数值分析，李庆扬等，第五版
+
+# Summary
+
+## 函数逼近
+
+用多项式来逼近函数其实就是，找一组系数\\(a_j\\)，使得多项式与函数的“差距”最小。
+
+于是就有几个问题：
+
+1. 既然把多项式表示成\\((a_0,a_1,\dots,a_n)(\varphi_0(x),\varphi_1(x),\dots,\varphi_n(x))^{\mathrm{T}}\\)，那么\\(\varphi_j(x)\\)怎么选
+2. 怎么衡量多项式与函数之间的“差距”
+3. 怎么算出相应的\\(a_j\\)
+
+答：
+
+1. 最直接的方法，取\\({1,x,x^2,\dots,x^n}\\)；  
+   更好的方法，取上述多项式正交化的结果，即<mark>勒让德多项式</mark>
+2. 回想对向量长度的定义，推广为<mark>范数</mark>的概念（就好比Java中给某个class实现Comparator的接口一样）  
+   对于一个向量，可以用其最大的坐标来衡量大小，就是‘最大范数’；用所有坐标的和来衡量大小，就是1-范数；所有坐标平方和再开方，就是2-范数；还可以在求和的时候给不同坐标以不同的权重，就是带权范数；  
+   对于一个函数，同样可以用最大值，积分等等来当作范数。
+   （当然，范数的选法需要满足一定的条件，使其的确能对元素进行“衡量”）
+3. 求多元函数极值，考虑其必要条件，对各自变量求导数并使其等于0，这样得到一个方程组，求解它，再证明求出的系数确实使多项式与函数最近
+
+求最佳平方逼近时，方程组（称为<mark>法方程</mark>）为
+
+$$ \sum_{j=0}^n(\varphi_k(x),\varphi_j(x))a_j=(f(x),\varphi_k(x)),\ k=0,1,\dots,n. $$
+
+其实就是
+
+$$ (S(x),\varphi_k(x))=(f(x),\varphi_k(x)),\ k=0,1,\dots,n. $$
+
+即
+
+$$ \left(
+ \begin{matrix}
+ (\varphi_0(x),S(x)) \\
+ (\varphi_1(x),S(x)) \\
+ \vdots \\
+ (\varphi_n(x),S(x))
+ \end{matrix}
+ \right)
+ =\left(
+ \begin{matrix}
+ (\varphi_0(x),f(x)) \\
+ (\varphi_1(x),f(x)) \\
+ \vdots \\
+ (\varphi_n(x),f(x))
+ \end{matrix}
+ \right)
+$$
+
+即
+
+$$ \left(
+ \begin{matrix}
+ (\varphi_0,\varphi_0) & (\varphi_0,\varphi_1) & \dots & (\varphi_0,\varphi_n) \\
+ (\varphi_1,\varphi_0) & (\varphi_1,\varphi_1) & \dots & (\varphi_1,\varphi_n) \\
+ \vdots & \vdots &  & \vdots \\
+ (\varphi_n,\varphi_0) & (\varphi_n,\varphi_1) & \dots & (\varphi_n,\varphi_n)
+ \end{matrix}
+ \right)
+ \left(
+ \begin{matrix}
+ a_0 \\
+ a_1 \\
+ \vdots \\
+ a_n
+ \end{matrix}
+ \right)
+ =\left(
+ \begin{matrix}
+ (\varphi_0,f) \\
+ (\varphi_1,f) \\
+ \vdots \\
+ (\varphi_n,f)
+ \end{matrix}
+ \right)
+$$
+
+- 左边的矩阵称为<mark>格拉姆矩阵</mark>，\\({\varphi_j}\\)正交时，格拉姆矩阵变为对角矩阵，\\(a_j\\)很容易求出
+- \\(f\\)为点列时，\\((\varphi_j,f)\\)为求和，不再是积分（<mark>最小二乘</mark>）
+- 误差的平方为\\(\|\|f-S^*\|\|^2\\)可化简为\\((f,f)-(S^*,f)\\)
+
+## 数值积分和数值微分
+
+数值积分
+
+起因：用牛顿-莱布尼兹公式求积常常遇到原函数不能用初等函数表达的情况。
+
+方法：一般地，选<mark>求积节点</mark>，<mark>求积系数</mark>（或称为权）。
+
+既然是近似方法，就得给出精确度的衡量。<mark>代数精度</mark>，求积公式能准确成立的多项式的最高次数
+
+插值型的求积公式：用插值函数替代原函数，(n+1个点)，余项
+
+$$ R_n(x)=\frac{f^{n+1}(\xi)}{(n+1!)}\omega_{n+1}(x), $$
+
+$$ \omega_{n+1}(x)=(x-x_0)(x-x_1)\dots(x-x_n). $$
+
+牛顿-柯特斯公式
+
+---
+
+# Details
 
 ## Contents
 
@@ -228,21 +332,50 @@ $$ T_m(h)=\frac{4^m G_{m-1}(\frac{h}{2})-G_{m-1}(h)}{4^m -1},\ m=1,\ 2,\ \dots $
 
 ## Numerical Quadrature: The General Problem
 
-$$ \int_a^b f(x)\mathrm{d}x\approx\sum_{k=0}^n A_kf(x_k) $$
+$$ \int_a^b f(x)\ \mathrm{d}x\approx\sum_{k=0}^n A_kf(x_k) $$
 
 **代数精度** 如果某个求积公式对于次数不超过\\(m\\)的多项式均能准确成立，但对于\\(m+1\\)次多项式就不准确成立，则称该求积公式具有\\(m\\)次代数精度
 
-### Interpolation Quadrature Formula
+### Interpolation Quadrature Formula 插值型求积公式
 
-### Residue
+### Residue 余项
 
-### Convergence and Stability
+一般地，可将余项表示为\\(Kf^{m+1}(\eta)\\)，\\(m\\)为代数精度，\\(K\\)为不依赖于\\(\f(x)\)的待定参数，\\(\eta\in(a,b)\\)
 
-## Newton-Cotes Quadrature Formulas
+\\(K\\)可由\\(f(x)=x^{m+1}\\)时求出
 
-## Composite Quadrature Formulas
+### Convergence and Stability 收敛性与稳定性
+
+收敛性：极限情况下（求积节点足够多）计算出的积分等于真实值
+
+稳定性？？？；定理，所有求积系数大于0则求积公式稳定
+
+## Newton-Cotes Quadrature Formulas  牛顿-柯特斯公式
+
+求积节点：把区间划分成n等份；  
+求积系数：柯特斯系数
+
+\\(n\ge 8\\)时不稳定
+
+\\(n=2\\)时相应的求积公式称为**辛普森公式**
+
+$$ S=\frac{b-a}{6}\left[f(a)+4f\left(\frac{a+b}{2}\right)+f(b)\right]. $$
+
+当\\(n\\)为偶数时，牛顿-柯特斯公式至少具有\\(n+1\\)次代数精度
+
+## Composite Quadrature Formulas 复合求积公式
+
+分成多个子区间再求和
+
+复合梯形公式
+
+复合辛普森公式
 
 ## Gaussian Quadrature
+
+求积节点：高斯点
+
+定理：\\((n+1)\\)次正交多项式的零点就是高斯点
 
 # Chapter 6 Functional Approximation: Least-Squares Techniques
 
@@ -350,5 +483,3 @@ $$ H\vec{a}=\vec{d} $$
 用正交函数组作最佳平方逼近
 
 ## 3.4 曲线拟合的最小二乘法
-
-## 3.5 有理逼近
