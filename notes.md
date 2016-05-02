@@ -8,3 +8,4 @@ title: Notes
 - [Computer Organization](/notes/2016-spring/computer-organization)
 - [Discrete Mathematics](/notes/2016-spring/discrete-mathematics)
 - [Numerical Analysis](/notes/2016-spring/numerical-analysis)
+- [Operating System](/notes/2016-spring/operating-system)
