@@ -1,3 +1,4 @@
+/* override */
 html {
     font-family: "Open Sans", "Microsoft yahei";
 }
@@ -7,6 +8,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 body {
     color: black;
+}
+p {
+    margin-bottom: 0.5rem;
+}
+li ul {
+    margin-bottom: 0.2rem;
 }
 
 /* */
@@ -35,6 +42,49 @@ figure {
 }
 mark {
     border-radius: 5px;
+}
+
+/* definition list */
+dl {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+dd {
+    margin-bottom: 0;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0);
+}
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+}
+
+/* */
+.sidebar {
+    font-family: "Open Sans", "Microsoft yahei";
 }
 
 /* excerpt */

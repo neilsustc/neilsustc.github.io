@@ -9,3 +9,4 @@ title: Notes
 - [Discrete Mathematics](/notes/2016-spring/discrete-mathematics)
 - [Numerical Analysis](/notes/2016-spring/numerical-analysis)
 - [Operating System](/notes/2016-spring/operating-system)
+- [Data Mining](/notes/2016-spring/data-mining)

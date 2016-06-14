@@ -17,6 +17,7 @@ Textbook: Computer Organization and Design - The Hardware/Software Interface 5th
 - Lecture 6: 3.1-3.4
 - Lecture 7: 3.5-3.8
 - Lecture 8: 4.1-4.3
+- Lecture 9: 4.4-4.8
 
 # Contents
 
@@ -87,7 +88,7 @@ Design principles:
 
 ## 2.2/2.3 Operations/Operands of the Computer Hardware
 
-![MIPS](/static/imgs/MIPS_opnds_oprs.png)
+![MIPS](/static/imgs/MIPS-opnds-oprs.png)
 
 Register vs. Memory
 
@@ -226,7 +227,7 @@ We've been avoiding using `$fp` by avoiding changes to the `$sp` within a proced
 
 ### Allocating Space for New Data on the heap
 
-![Memory allocation](/static/imgs/MIPS_memory_allocation.png)
+![Memory allocation](/static/imgs/MIPS-memory-allocation.png)
 
 ## 2.10 MIPS Addressing for 32-bit Immediates and Addresses
 
@@ -253,7 +254,7 @@ Solution: *PC-relative addressing*
 ### Summary
 
 <div class="image-wrapper">
-    <img src="/static/imgs/MIPS_addressing_modes.png" alt="MIPS addressing mode summary"/>
+    <img src="/static/imgs/MIPS-addressing-modes.png" alt="MIPS addressing mode summary"/>
     <p class="image-caption">MIPS addressing mode summary</p>
 </div>
 
@@ -332,7 +333,7 @@ In general, floating-point numbers are of the form (-1)<sup>S</sup>×F×2<sup>E<
 
 ## 4.1 Introduction
 
-Chapter 1 explains that the performance of a computer is determined by three key factors: *instrcution count*, *clock cycle time*, and *clock per instruction*(CPI).
+Chapter 1 explains that the performance of a computer is determined by three key factors: *instrcution count*, *clock per instruction*(CPI), and *clock cycle time*.
 
 Chapter 2 explains that the instruction set architecture determine the *instruction count* required for a given program.
 
@@ -357,8 +358,13 @@ For every inst, the first two steps are identical:
 2. read one or two registers, using fields of the inst to select the registers to read
 
 <div class="image-wrapper">
-    <img src="/static/imgs/basic_impl_MIPS.png" alt="A high-level view of a MIPS implementation"/>
-    <p class="image-caption">A high-level view of a MIPS implementation</p>
+    <img src="/static/imgs/abstract-view-of-impl-MIPS.png" alt="An abstract view of the implementation of the MIPS subset"/>
+    <p class="image-caption">An abstract view of the implementation of the MIPS subset</p>
+</div>
+
+<div class="image-wrapper">
+    <img src="/static/imgs/basic-impl-of-MIPS.png" alt="A basic implementation of the MIPS subset"/>
+    <p class="image-caption">A basic implementation of the MIPS subset</p>
 </div>
 
 ## 4.2 Logic Design Conventions
@@ -372,6 +378,10 @@ For every inst, the first two steps are identical:
 ## 4.3 Building a Datapath
 
 Implementing R-type insts, lw/sw, J-type insts (some figures ...)
+
+## 4.4 A Simple Implementation Scheme
+
+## 4.5
 
 -------
 
