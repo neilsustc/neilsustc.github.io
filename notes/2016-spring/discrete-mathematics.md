@@ -17,12 +17,12 @@ Discrete mathematics therefore excludes topics in *"continuous mathematics"* suc
 
 # Contents
 
-- [1 The Foundations: Logic and Proofs](#chapter-1-the-foundations-logic-and-proofs)
+- [1 The Foundations: Logic and Proofs](#the-foundations-logic-and-proofs)
   - [1.1 Propositional Logic](#propositional-logic)
   - [1.3 Propositional Equivalences](#propositional-equivalences)
   - [1.4 Predicates and Quantifiers](#predicates-and-quantifiers)
   - [1.5 Nested quantifiers](#nested-quantifiers)
-- [2 Basic Structures: Sets, Functions, Sequences, Sums, and Matrices](#chapter-2-basic-structures-sets-functions-sequences-sums-and-matrices)
+- [2 Basic Structures: Sets, Functions, Sequences, Sums, and Matrices](#basic-structures-sets-functions-sequences-sums-and-matrices)
   - [2.1 Sets](#sets)
   - [2.2 Set Operations](#set-operations)
   - [2.3 Functions](#functions)
@@ -31,7 +31,7 @@ Discrete mathematics therefore excludes topics in *"continuous mathematics"* suc
 - [3 Algorithms](#algorithms)
 - [4 Number Theory and Cryptography](#number-theory-and-cryptography)
 
-# Chapter 1 The Foundations: Logic and Proofs
+# 1 The Foundations: Logic and Proofs
 
 ## Propositional Logic
 
@@ -112,7 +112,7 @@ The order of nested quantifiers *does no matter* if quantifiers are of the *same
 
 Example: Prove that \\(\sqrt{2}\\) is irrational
 
-# Chapter 2 Basic Structures: Sets, Functions, Sequences, Sums, and Matrices
+# 2 Basic Structures: Sets, Functions, Sequences, Sums, and Matrices
 
 ## Sets
 
@@ -147,7 +147,7 @@ union, intersection, difference(, symmetric difference), complement
 
 ## Functions
 
-Let \\(A\\) and \\(B\\) be nonempty sets. A function \\(f\\) from \\(A\\) to \\(B\\) is an assignment of exactly one element of \\(B\\) to each element of \\(A\\). We write \\(f(a) = b\\) if \\(b\\) is the unique element of \\(B\\) assigned by the function \\(f\\) to the element \\(a\\) of \\(A\\). If \\(f\\) is a function from \\(A\\) to \\(B\\), we write \\(f:A \rightarrow B\\).
+Let \\(A\\) and \\(B\\) be nonempty sets. A function \\(f\\) from \\(A\\) to \\(B\\) is an assignment of exactly one element of \\(B\\) to <mark>each</mark> element of \\(A\\). We write \\(f(a) = b\\) if \\(b\\) is the unique element of \\(B\\) assigned by the function \\(f\\) to the element \\(a\\) of \\(A\\). If \\(f\\) is a function from \\(A\\) to \\(B\\), we write \\(f:A \rightarrow B\\).
 
 image, preimage, domain, codomain, range
 
@@ -177,7 +177,7 @@ A **sequence** is a *function* from a subset of the set of integers (usually eit
 
 We use the notation \\({a_n}\\) to describe the sequence.
 
-geometric progression (\\(ar^n\\))/arithmetic progression (\\(a+nd\\))
+geometric progression (\\(ar^n\\)), arithmetic progression (\\(a+nd\\))
 
 A **recurrence relation** is said to <mark>recursively define</mark> a sequence. (e.g. Fibonacci sequence)
 
@@ -203,7 +203,7 @@ A set that is <mark>either finite</mark> or <mark>has the same cardinality as th
 
 {::comment}The end of lec05{:/comment}
 
-# Algorithms
+# 3 Algorithms
 
 An **algorithm** is a finite sequence of *precise instructions* for performing a computation or for solving a problem.
 
@@ -227,16 +227,16 @@ Time and Space Complexity
 
 Three cases of analysis
 
-# Number Theory and Cryptography
+# 4 Number Theory and Cryptography
 
 ## Divisibility and Modular Arithmetic
 
 Division (...)
 
-\\(a \equiv b \pmod m\\) and \\(a \bmod b = b\\) are *different*
+\\(a \equiv b \pmod{m}\\) and \\(a \bmod{b} = m\\) are *different*
 
-- \\(a \equiv b \pmod m\\) is a *relation*(congruence relation) on the set of integers
-- In \\(a \bmod b = b\\), the notation \\(\bmod\\) denotes a *function*
+- \\(a \equiv b \pmod{m}\\) is a *relation*(congruence relation) on the set of integers
+- In \\(a \bmod b = m\\), the notation \\(\bmod{}\\) denotes a *function*
 
 **Definition** \\( \mathbf{Z}_m,\ +_m,\ ._m \\)
 
@@ -250,14 +250,18 @@ base b expansions (decimal, binary, octal, hexadecimal)
 
 prime/composite
 
-If n is composite, then n has a prime divisor less than or equal to \\(\sqrt{n}\\)
+If \\(n\\) is composite, then \\(n\\) has a prime divisor less than or equal to \\(\sqrt{n}\\)
 
 GCD/LCM
 
-**Definition** Let \\(a \in \mathrm{Z}\\) and \\(n \in \mathrm{N}\\). If \\(\mathrm{gcd}(a, n) = 1\\), the least \\(l \in \mathrm{N}\\) such that \\(a^l \equiv 1 (\mathrm{mod} n)\\) is called the **order** of \\(a\\) modulo \\(n\\),
-denoted by \\(\mathrm{ord}_n(a)\\).
+The **order** of \\(a\\) modulo \\(n\\)
+: Let \\(a \in \mathrm{Z}\\) and \\(n \in \mathrm{N}\\). If \\(\mathrm{gcd}(a, n) = 1\\), the least \\(l \in \mathrm{N}\\) such that \\(a^l \equiv 1 \pmod{n}\\) is called the **order** of \\(a\\) modulo \\(n\\), denoted by \\(\mathrm{ord}_n(a)\\).
 
 **Theorem** Let \\(a \in \mathrm{Z}\\) and \\(n \in \mathrm{N}\\) with \\(\mathrm{gcd}(a, n) = 1\\). Then \\(\mathrm{ord}_n(a)\\) exists and divides \\(\phi(n)\\).
+
+...
+
+# 5 Induction and Recursion
 
 ----------------
 

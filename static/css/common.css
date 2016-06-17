@@ -21,6 +21,7 @@ blockquote cite {
     font-size: 0.8rem;
 }
 h2 {
+    font-size: 1.6rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
@@ -52,7 +53,12 @@ dl {
     border-radius: 5px;
     margin-bottom: 0.5rem;
 }
+dt {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+}
 dd {
+    padding-top: 0.5rem;
     margin-bottom: 0;
 }
 
