@@ -68,5 +68,5 @@ title: 没时间解释了，快上车
 <hr class="quarter" />
 
 <div class="image-wrapper">
-    <img src="/static/imgs/notdriver.jpg" alt="not driver"/>
+    <img src="/static/imgs/notdriver.jpg" alt="not driver" />
 </div>

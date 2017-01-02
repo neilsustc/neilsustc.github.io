@@ -13,7 +13,9 @@ def main(argv):
             content = content.replace(' ** ', '**') \
                              .replace('"/>', '" />') \
                              .replace(' “', '“') \
-                             .replace('” ', '”')
+                             .replace('” ', '”') \
+                             .replace('&emsp;&emsp; ', '&emsp;&emsp;') \
+                             .replace('"alt', '" alt')
         w.write(content)
 
 if __name__ == '__main__':
