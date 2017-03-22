@@ -1,9 +1,9 @@
 /* override */
 html {
-    font-family: "Open Sans", "SimHei";
+    font-family: "Open Sans", "Microsoft yahei";
 }
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Open Sans", "SimHei";
+    font-family: "Open Sans", "Microsoft yahei";
     color: black;
 }
 body {
@@ -129,4 +129,9 @@ hr.quarter {
     margin-left: auto;
     margin-right: auto;
     border-top-color: #c8c8c8;
+}
+
+.emoji::before,
+.emoji::after {
+    content: '\00a0'
 }
