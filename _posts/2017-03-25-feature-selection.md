@@ -9,12 +9,11 @@ title: Feature Selection
 
 ## Contents
 
-- [Feature Selection](#feature-selection)
-    - [Filter Model](#filter-model)
-        - [Feature Ranking](#feature-ranking)
-        - [Subset Selection](#subset-selection)
+- [Filter Model](#filter-model)
+    - [Feature Ranking](#feature-ranking)
+    - [Subset Selection](#subset-selection)
 
-## Feature Selection
+---
 
 Background: too many features
 
@@ -24,13 +23,13 @@ Objective:
 - more efficiency
 - better understanding (of data)
 
-### Filter Model
+## Filter Model
 
 2 categories: feature ranking and subset selection
 
 based on whether evaluate the goodness of features individually or through feature subsets
 
-#### Feature Ranking
+### Feature Ranking
 
 Pros: low complexity  
 Cons: don't remove redundancy
@@ -39,9 +38,9 @@ Ranking criterion:
 
 - correlation criteria: e.g. 'Pearson correlation coefficient' (limits: )
 
-<!-- - 'Relief' -->
+- 'Relief'
 
-#### Subset Selection
+### Subset Selection
 
 2 measure:
 
