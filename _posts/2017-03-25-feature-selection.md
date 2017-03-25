@@ -3,6 +3,10 @@ layout: post
 title: Feature Selection
 ---
 
+<div class="excerpt">
+    A review of feature selection
+</div>
+
 ## Contents
 
 - [Feature Selection](#feature-selection)
