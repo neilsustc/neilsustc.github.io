@@ -18,10 +18,6 @@ body {
     color: black;
 }
 
-p {
-    margin-bottom: 0.5rem;
-}
-
 li ul {
     margin-bottom: 0.2rem;
 }
@@ -82,10 +78,17 @@ dt {
 }
 
 dd {
-    padding-top: 0.5rem;
+    padding: 0.5rem 0 1rem 0;
     margin-bottom: 0;
 }
 
+dl dd:last-child {
+    padding-bottom: 0;
+}
+
+dd ul {
+    margin: 0;
+}
 
 /* scrollbar */
 
