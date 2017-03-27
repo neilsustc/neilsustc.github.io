@@ -218,3 +218,7 @@ hr.quarter {
 i.fa {
     margin-right: 0.5em;
 }
+
+.sidebar-toggle i.fa {
+    margin-right: 0;
+}
