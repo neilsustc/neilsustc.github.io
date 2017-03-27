@@ -22,6 +22,11 @@ li ul {
     margin-bottom: 0.2rem;
 }
 
+.post-date {
+    display: inline;
+    margin: 0;
+    vertical-align: middle;
+}
 
 /* */
 
@@ -185,4 +190,21 @@ hr.quarter {
 .emoji::before,
 .emoji::after {
     content: '\00a0'
+}
+
+.post-info {
+    margin-bottom: 1rem;
+}
+
+.post-tag {
+    font-size: 0.75em;
+    color: rgb(172, 65, 66);
+    background: rgba(172, 65, 66, 0.15);
+    padding: 0.2em 0.6em 0.4em;
+    margin-right: 0.5em;
+    border-radius: 0.2em;
+}
+
+i.fa {
+    margin-right: 0.5em;
 }
