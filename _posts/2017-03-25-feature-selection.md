@@ -26,7 +26,7 @@ tags: research summary
 Background
 : too many features
 
-Objective
+Objectives
 : - better prediction performance
   - faster, more cost-effective predictor
   - better understanding (of the data)
@@ -41,6 +41,8 @@ Based on whether *evaluate* the goodness of features *individually* or *through 
 Ranking criterion:
 
 ### Correlation Criteria
+
+e.g.
 
 Pearson correlation coefficient
 : $$ R(i) = \frac{cov(X_i, Y)}{\sqrt{var(X_i)var(Y)}} $$
@@ -68,13 +70,35 @@ The case of discrete variables is easy (because the integral becomes a sum), but
 
 ## Evaluate A subset of Features - Subset Selection
 
-...
+### Wrapper Methods
+
+Wrapper Methods
+: use *the prediction performance* of a *given learning machine* to evaluate the subsets of features
+
+### Embedded Metheds
+
+// TODO
+
+### Filter Methods
+
+Markov blanket algorithms [Koller and Sahami, 1996]
+
+(IMO, nothing new)
 
 ---
 
 TODO
 
-- 'Relief'
+Filter methods
+
+- F-statistic
+- Relief, ReliefF, RReliefF
+- mRMR
+- t-test
+- information gain (in information theory)
+- CFS
+- FCBF
+- INTERACT
 
 // put these analysis into summary at the end of the post
 
@@ -87,4 +111,4 @@ IMO, key questions
 
 What're the candidates?
 
-How to evaluate their goodness?
+How do we evaluate their goodness?
