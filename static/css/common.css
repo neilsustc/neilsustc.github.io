@@ -99,6 +99,10 @@ dd p:last-child {
     margin-bottom: 0;
 }
 
+dd .MathJax_SVG_Display:nth-last-child(2) {
+    margin-bottom: 0.5em;
+}
+
 
 /* scrollbar */
 
@@ -207,8 +211,8 @@ hr.quarter {
 
 .post-tag {
     font-size: 0.75em;
-    color: rgb(172, 65, 66);
-    background: rgba(172, 65, 66, 0.15);
+    color: var(--color-accent);
+    background: var(--color-accent-lighter);
     padding: 0.1333em 0.6em 0.2666em;
     margin-right: 0.5em;
     border-radius: 0.2em;
@@ -221,4 +225,8 @@ i.fa {
 
 .sidebar-toggle i.fa {
     margin-right: 0;
+}
+
+::selection {
+    background: var(--color-accent-lighter);
 }
