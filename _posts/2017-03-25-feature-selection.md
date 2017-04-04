@@ -13,30 +13,50 @@ tags: research summary
 </script>
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG'></script>
 
-## Contents
+<!-- ## Contents -->
 
-- [Evaluate A Feature - Feature Ranking](#evaluate-a-feature-feature-ranking)
+- [Overview](#overview)
+- [Variable Ranking](#variable-ranking)
     - [Correlation Criteria](#correlation-criteria)
-    - [Single Variable Classifiers (Predictors)](#single-variable-classifiers-predictors)
     - [Information Theoretic Ranking Criteria](#information-theoretic-ranking-criteria)
-- [Evaluate A subset of Features - Subset Selection](#evaluate-a-subset-of-features-subset-selection)
+- [Variable Subset Selection](#variable-subset-selection)
+    - [Wrapper Methods](#wrapper-methods)
+    - [Embedded Metheds](#embedded-metheds)
+    - [Filter Methods](#filter-methods)
 
 ---
 
-Background
-: too many features
+## Overview
 
-Objectives
-: - better prediction performance
-  - faster, more cost-effective predictor
-  - better understanding (of the data)
+Why do we need feature selection?
 
-Based on whether *evaluate* the goodness of features *individually* or *through feature subset*s, there are 2 categories:
+- help understanding data
+- improve prediction performance (avoid curse of dimensionality)
+- reduce computation requirement
+- ...
 
-- Feature ranking
-- Subset selection
+What we want is a subset of variables/features which is "good".
 
-## Evaluate A Feature - Feature Ranking
+<!-- <ol start="0">
+    <li style="color: rgba(0,0,0,0.5)">What are the candidates?</li>
+    <li>How do we <em>evaluate</em> the "goodness" of those candidates?</li>
+</ol> -->
+
+<!-- 1. How do we *evaluate* the 'goodness' of those candidates?
+2. There are too many subsets ($ 2^N $) as the number of features grows. -->
+
+But how?
+
+There are 2 different ways,
+
+- variable ranking
+- variable subset selection
+
+The first method is to evaluate the features *individually* and then select the good ones (usually using a threshold).
+
+As for another method, we directly *search* through possible subsets (obviously, brute-force searching through all the $ 2^N $ subsets will not work as $ N $ the number of features grows)
+
+## Variable Ranking
 
 Ranking criterion:
 
@@ -53,12 +73,6 @@ Limit: this $ R(i) $ only detect linear dependency between $ X_i $ and $ Y $.
 
 A simple solution: use non-linear preprocessing (e.g. squaring) on $ X_i $.
 
-### Single Variable Classifiers (Predictors)
-
-Select features according to their *"individual predictive power"*
-
-Criteria: the performance of a classifier (predictor) built with a single variable
-
 ### Information Theoretic Ranking Criteria
 
 Mutual information
@@ -68,7 +82,7 @@ The difficulty is that the densities $ p(x_i) $, $ p(y) $ and $ p(x_i, y) $ are 
 
 The case of discrete variables is easy (because the integral becomes a sum), but the case of continuous variables is hard.
 
-## Evaluate A subset of Features - Subset Selection
+## Variable Subset Selection
 
 ### Wrapper Methods
 
@@ -103,7 +117,7 @@ Filter methods
 // put these analysis into summary at the end of the post
 
 Pros: low complexity  
-Cons: don't remove redundancy
+Cons: don't remove redundancy (???)
 
 ---
 
@@ -112,3 +126,8 @@ IMO, key questions
 What're the candidates?
 
 How do we evaluate their goodness?
+
+---
+
+feature selection vs. PCA [2014]  
+good features can be independent of the rest of the data (or irrelevant variables)
