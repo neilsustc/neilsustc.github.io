@@ -16,13 +16,12 @@ tags: research summary
 <!-- ## Contents -->
 
 - [Overview](#overview)
-- [Variable Ranking](#variable-ranking)
+- [Feature weighting](#feature-weighting)
     - [Correlation Criteria](#correlation-criteria)
     - [Information Theoretic Ranking Criteria](#information-theoretic-ranking-criteria)
-- [Variable Subset Selection](#variable-subset-selection)
-    - [Wrapper Methods](#wrapper-methods)
-    - [Embedded Metheds](#embedded-metheds)
-    - [Filter Methods](#filter-methods)
+    - [Others](#others)
+- [Feature subset search](#feature-subset-search)
+- [Others](#others)
 
 ---
 
@@ -47,18 +46,15 @@ What we want is a subset of variables/features which is "good".
 
 But how?
 
-There are 2 different ways,
+There are several different ways based on whether they evaluate the "goodness" of features *individually* or *through feature subsets*
 
-- variable ranking
-- variable subset selection
+- feature weighting
+- feature subset search
+- others
 
-The first method is to evaluate the features *individually* and then select the good ones (usually using a threshold).
+## Feature weighting
 
-As for another method, we directly *search* through possible subsets (obviously, brute-force searching through all the $ 2^N $ subsets will not work as $ N $ the number of features grows)
-
-## Variable Ranking
-
-Ranking criterion:
+After assigning weight to each feature, we can select by setting a threshold, AKA **filter methods**.
 
 ### Correlation Criteria
 
@@ -82,52 +78,34 @@ The difficulty is that the densities $ p(x_i) $, $ p(y) $ and $ p(x_i, y) $ are 
 
 The case of discrete variables is easy (because the integral becomes a sum), but the case of continuous variables is hard.
 
-## Variable Subset Selection
+### Others
 
-### Wrapper Methods
-
-Wrapper Methods
-: use *the prediction performance* of a *given learning machine* to evaluate the subsets of features
-
-### Embedded Metheds
-
-// TODO
-
-### Filter Methods
-
-Markov blanket algorithms [Koller and Sahami, 1996]
-
-(IMO, nothing new)
-
----
-
-TODO
-
-Filter methods
-
-- F-statistic
 - Relief, ReliefF, RReliefF
-- mRMR
-- t-test
-- information gain (in information theory)
-- CFS
-- FCBF
-- INTERACT
+- ...
 
-// put these analysis into summary at the end of the post
+## Feature subset search
 
-Pros: low complexity  
-Cons: don't remove redundancy (???)
+There are 2 questions,
+
+1. How do we evaluate a subset of variables?
+2. How can we effectively search through candidate feature subsets?
+
+For question 1, of course we can still use correlation measure (e.g. CFS (correlation-based feature selection)) or others (e.g. consistency measure).  
+If we use *the prediction performance* of a *given predictor* to evaluate the variable subset, then we get **wrapper methods**.
+
+For question 2, it's about search strategies (exhaustive, heuristic and random search).
+
+Combining these two parts, we will have many methods.
+
+## Others
+
+Clustering, ...
 
 ---
 
-IMO, key questions
+Feature selection vs. PCA  
+[2014 A Survey on ...] Good features can be independent of the rest of the data (or irrelevant variables)
 
-What're the candidates?
-
-How do we evaluate their goodness?
-
----
-
-feature selection vs. PCA [2014]  
-good features can be independent of the rest of the data (or irrelevant variables)
+Why redundancy is bad?  
+[2003 ICML Feature Selection for High-Dimensional ... #2.Related Work]  
+[2003 JMLR An Introduction ...]
