@@ -61,18 +61,18 @@ After assigning weight to each feature, we can select by setting a threshold, AK
 e.g.
 
 Pearson correlation coefficient
-: $$ R(i) = \frac{cov(X_i, Y)}{\sqrt{var(X_i)var(Y)}} $$
+: $$ R(X_i,Y) = \frac{cov(X_i, Y)}{\sqrt{var(X_i)var(Y)}} $$
   
   where $ X_i $ designates the random variable of a feature, $ Y $ the random variable of the target, $ cov $ the covariance and $ var $ the variance
 
-Limit: this $ R(i) $ only detect linear dependency between $ X_i $ and $ Y $.
+Limit: this $ R(X_i,Y) $ only detect linear dependency between $ X_i $ and $ Y $.
 
 A simple solution: use non-linear preprocessing (e.g. squaring) on $ X_i $.
 
 ### Information Theoretic Ranking Criteria
 
 Mutual information
-: $$ I(i) = \int_{x_i}\int_{y}p(x_i,y)\log\frac{p(x_i,y)}{p(x_i)p(y)}\,dxdy $$
+: $$ I(X_i,Y) = \int_{x_i}\int_{y}p(x_i,y)\log\frac{p(x_i,y)}{p(x_i)p(y)}\,dxdy $$
 
 The difficulty is that the densities $ p(x_i) $, $ p(y) $ and $ p(x_i, y) $ are all unknown and are hard to estimate from data.
 
