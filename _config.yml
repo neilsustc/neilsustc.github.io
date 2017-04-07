@@ -8,7 +8,10 @@ title:               Yu
 tagline:             '''s blog'
 description:         'Yu''s blog'
 baseurl:             ''
-paginate:            5
-gems:                [jekyll-paginate]
 
-# Excerpt
+# Plugins
+gems:                [jekyll-paginate]
+paginate:            5
+
+# Conversion
+# excerpt_separator:   "\n\n" # You can explicitly override this by setting a value in the YAML fromt matter of a certain post
