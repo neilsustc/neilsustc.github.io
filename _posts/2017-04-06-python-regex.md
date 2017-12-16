@@ -22,7 +22,7 @@ pattern = re.compile('foo')
 Once you have a **regex object**, you can use several methods it has.
 
 `regex.match(string[, pos[, endpos]])`
-: - Return a corresponding **match object**, if the regex matches *at the beginning of* the `string`  
+: - Return a corresponding [**match object**](https://docs.python.org/3/library/re.html#match-objects), if the regex matches *at the beginning of* the `string`  
   - Return `None` if the string does not match the pattern
 
 `regex.search(string[, pos[, endpos]])`
